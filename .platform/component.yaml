@@ -8,17 +8,17 @@ metadata:
     ingress_type: kong
     certificate_account_email: platformss@vee.codes
     certificate_environment_type: staging
-    public_ip: 34.202.181.217
+    public_ip: 3.210.64.224
   annotations:
     github.com/project-slug: veecode-homolog/teste-central-obs-overview
     backstage.io/techdocs-ref: dir:..
     github.com/workflows: terraform-deploy.yml,start-instance.yml,stop-instance.yml,kubeconfig.yml,terraform-destroy.yml
-    cluster/instructions: "# Run the following commands to import the kubeconfig:\n  ssh -i ./cert.pem -o StrictHostKeyChecking=no $USERNAME@$34.202.181.217 \"mkdir -p .kube && k3d kubeconfig get k3s > ~/.kube/config\"\n  scp -i ./cert.pem $USERNAME@$34.202.181.217:~/.kube/config ~/.kube/config-teste-central-obs-overview\n  yq -e 'del(.clusters[0].cluster.certificate-authority-data) | .clusters[0].cluster.insecure-skip-tls-verify=true | .clusters[].cluster.server |= sub(\"0.0.0.0\", \"34.202.181.217\")' -i ~/.kube/config-teste-central-obs-overview\n  export KUBECONFIG=~/.kube/config-teste-central-obs-overview\n  kubectl get pods -A\n"
+    cluster/instructions: "# Run the following commands to import the kubeconfig:\n  ssh -i ./cert.pem -o StrictHostKeyChecking=no $USERNAME@$3.210.64.224 \"mkdir -p .kube && k3d kubeconfig get k3s > ~/.kube/config\"\n  scp -i ./cert.pem $USERNAME@$3.210.64.224:~/.kube/config ~/.kube/config-teste-central-obs-overview\n  yq -e 'del(.clusters[0].cluster.certificate-authority-data) | .clusters[0].cluster.insecure-skip-tls-verify=true | .clusters[].cluster.server |= sub(\"0.0.0.0\", \"3.210.64.224\")' -i ~/.kube/config-teste-central-obs-overview\n  export KUBECONFIG=~/.kube/config-teste-central-obs-overview\n  kubectl get pods -A\n"
     veecode/cluster-name: teste-central-obs-overview
     kubernetes.io/secret-name: teste-central-obs-overview-secret
     kubernetes.io/secret-namespace: veecode-homolog
     kubernetes.io/auth-provider: custom
-    kubernetes.io/api-server: https://34.202.181.217:6550
+    kubernetes.io/api-server: https://3.210.64.224:6550
     kubernetes.io/skip-tls-verify: "true"
     kubernetes.io/skip-metrics-lookup: "false"
 spec:
