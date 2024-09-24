@@ -84,15 +84,11 @@ jobs:
                 del(.metadata.annotations."kubernetes.io/*")
                ''' -i .platform/component.yaml
 
-      - name: Publish catalog info
-        uses: stefanzweifel/git-auto-commit-action@v5
+      - name: Upload component.yaml
+        uses: actions/upload-artifact@v4
         with:
-          repository: ".platform/"
-          commit_user_name: veecode-bot
-          commit_user_email: github-admin@vee.codes
-          commit_author: veecode-bot<github-admin@vee.codes>
-          commit_message: "Update catalog-info.yaml with cluster info"
-          push_options: '--force'
+          name: component-catalog
+          path: .platform/component.yaml
                
       - name: Delete Cluster from ArgoCD
         run: |
